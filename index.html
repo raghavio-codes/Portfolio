@@ -1,74 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raghav's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
-    body {
+    * {
       margin: 0;
-      font-family: 'Varela', sans-serif;
-      background: linear-gradient(240deg, #000002, #17172c);
-      color: #fff;
+      padding: 0;
+      box-sizing: border-box;
       scroll-behavior: smooth;
     }
-    header {
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: white;
+    }
+
+    .bg {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center/cover;
+      filter: blur(6px) brightness(0.5);
+      z-index: -2;
+    }
+
+    .glow-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s ease;
+    }
+
+    .glass-card {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 25px;
+      padding: 3rem;
+      margin: 2rem;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 60px rgba(255, 100, 0, 0.2);
+      animation: fadeInUp 1.2s ease forwards;
       text-align: center;
-      padding: 100px 20px 50px;
     }
-    .glass {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 40px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+
+    .glass-card h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-size: 1.5rem;
-      margin-top: 0;
-      font-weight: 400;
+
+    .glass-card p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
       color: #ccc;
     }
-    section {
-      padding: 40px 20px;
+
+    .btn-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    a {
-      color: #00ffff;
-      text-decoration: none;
+
+    .btn {
+      padding: 0.8rem 1.6rem;
+      border: none;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    section {
+      padding: 6rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    #about, #projects, #contact {
+      background: rgba(255, 255, 255, 0.05);
+      margin: 2rem;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p, li {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    a:link, a:visited {
+      color: #B8431A;
+      
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        transform: translateY(30%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="bg"></div>
+  <div class="glow-cursor" id="cursor"></div>
 
-  <header>
-    <h1>Raghav Kemkar</h1>
-    <h2>Web Developer • Student • Creator</h2>
-  </header>
+  <div class="glass-card">
+    <h1>Yo, I'm Raghav</h1>
+    <p>13 y/o Dev, Designer & Hustler building clean UIs and real businesses.</p>
+    <div class="btn-container">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="#contact" class="btn">Contact Me</a>
+    </div>
+  </div>
 
-  <section class="glass">
+  <section id="about">
     <h2>About Me</h2>
-    <p>I'm a 13-year-old coder passionate about building cool stuff on the web. I love minimalist design, clean code, and creating things from scratch.</p>
-  </section>
-
-  <section class="glass">
-    <h2>Projects</h2>
+    <p>I’m a 13 y/o developer passionate about modern design, productivity, and building real businesses. I love clean code, cool UIs, and working on stuff that actually matters.</p>
     <ul>
-        <li><strong>Glass Calculator</strong> – A modern glass calculator using HTML/CSS/JS <a href="https://raghavio-codes.github.io/Calculator/">Open Glass Calculator</a> </li>
-        <li><strong>Life OS</strong> – A beautiful life tracker using HTML/CSS/JS <a href="https://raghavio-codes.github.io/Life-OS">Open Life OS</a></li>
+      <li>💻 Frontend Web Dev (HTML, CSS, JS, Tailwind)</li>
+      <li>🚀 Productivity Tools & Notion Systems</li>
+      <li>💸 Freelance, Dropshipping & Digital Hustles</li>
     </ul>
   </section>
 
-  <section class="glass">
-    <h2>Contact</h2>
-    <p>Feel free to <a href="mailto:raghavkemkar@gmail.com">email me</a> or connect with me on <a href="https://github.com/raghavio-codes">GitHub</a>.</p>
+  <section id="projects">
+    <h2>Projects</h2>
+    <p>Here's some of the stuff I've built:</p>
+    <ul>
+      <li>📘 Notion Dashboard Clone – Super aesthetic, responsive layout <a href="https://raghavio-codes.github.io/Life-OS">Open Life OS</a></li>
+      <li>📱 Portfolio Site – This very site, with animations & glass UI</li>
+      <li>📊 Glass Calculator – SImple Calculator with animations and logic <a href="https://raghavio-codes.github.io/Calculator/">Open Calculator</a></li>
+    </ul>
+
   </section>
 
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Wanna build something together? Hit me up!</p>
+    <ul>
+      <li>Email: your@email.com</li>
+      <li>GitHub: github.com/yourhandle</li>
+      <li>Instagram: @yourhandle</li>
+    </ul>
+  </section>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+    });
+  </script>
 </body>
 </html>
